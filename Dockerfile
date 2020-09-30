@@ -1,9 +1,8 @@
-FROM raspbian/stretch:latest
+FROM raspbian/stretch:latest AS raspbian-stretch-upgrade
 
-LABEL maintainer="Mikhail Snetkov <msnetkov@navikey.ru>"
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN true \
-	export DEBIAN_FRONTEND=noninteractive \
 	# Do not start daemons after installation.
 	&& echo -e '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d \
 	&& chmod +x /usr/sbin/policy-rc.d \
@@ -21,8 +20,13 @@ RUN true \
 	&& apt-get full-upgrade -y \
 	&& apt-get autoremove --purge -y \
 	&& apt-get clean -y \
-	# Remove files outside image.
+	# Remove files outside base image.
 	&& rm -rf /var/lib/apt/lists/* \
-	&& rm -f /usr/sbin/policy-rc.d \
-	# Unset changed env variables.
-	&& unset DEBIAN_FRONTEND
+	&& rm -f /usr/sbin/policy-rc.d
+
+# Collapse image to single layer.
+FROM scratch AS raspbian-buster
+
+LABEL maintainer="Mikhail Snetkov <msnetkov@navikey.ru>"
+
+COPY --from=raspbian-stretch-upgrade / /
