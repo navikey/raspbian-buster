@@ -39,6 +39,7 @@ jobs:
       run: >
         docker buildx build
         --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
-        --tag navikey/raspbian-buster:${{ steps.date.outputs.date }},navikey/raspbian-buster:latest
+        --tag navikey/raspbian-buster:${{ steps.date.outputs.date }}
+        --tag navikey/raspbian-buster:latest
         --push
         .
