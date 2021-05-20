@@ -25,7 +25,7 @@ RUN true \
 	&& rm -f /usr/sbin/policy-rc.d
 
 # Collapse image to single layer.
-FROM scratch AS raspbian-buster
+FROM scratch
 
 LABEL maintainer="Mikhail Snetkov <msnetkov@navikey.ru>"
 
