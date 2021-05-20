@@ -1,7 +1,7 @@
 # Raspbian Buster
 
 [![Image Size](https://img.shields.io/docker/image-size/navikey/raspbian-buster/latest)](https://hub.docker.com/r/navikey/raspbian-buster)
-[![Latest tag](https://img.shields.io/docker/v/navikey/raspbian-buster?label=latest%20tag&sort=date)](https://hub.docker.com/repository/docker/navikey/raspbian-buster/tags)
+[![Latest tag](https://img.shields.io/docker/v/navikey/raspbian-buster?label=latest%20tag&sort=date)](https://hub.docker.com/r/navikey/raspbian-buster/tags)
 [![Pulls](https://img.shields.io/docker/pulls/navikey/raspbian-buster)](https://hub.docker.com/r/navikey/raspbian-buster)
 [![Stars](https://img.shields.io/docker/stars/navikey/raspbian-buster)](https://hub.docker.com/r/navikey/raspbian-buster)
 [![Issues](https://img.shields.io/github/issues/navikey/raspbian-buster)](https://github.com/navikey/raspbian-buster/issues)
